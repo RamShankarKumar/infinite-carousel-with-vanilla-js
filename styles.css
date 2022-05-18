@@ -1,0 +1,186 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/* Carousel architecture CSS for making responsive  */
+
+.container{
+    height: 100vh;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.carousel{
+    /* border: 2px solid orange; */
+    max-width: 85%;
+    height: 500px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    /* this property makes it responsive and force the slider to remain in the center while windows is getting smaller or bigger */
+    justify-content: center;
+
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+.slider{
+    /* border: 2px solid green; */
+    /* height: 90%; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    /* fortunately the number of slides made translate to 0px but in most of the cases at initial, to make things center you need to translate slider little bit left or right */
+    transform: translate(0px);
+}
+
+.slider .slide{
+    margin: 0 30px;
+    width: 300px;
+    min-height: 120px;
+    /* border: 2px solid palevioletred; */
+}
+
+
+/* CSS for Carousel beautification */
+
+.slider{
+    background-color: #655D8A;
+
+    transition: all 1s;
+}
+
+.slider .slide{
+    padding: 0 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 16px 44px 0px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.slide > *{
+    margin: 17px 0;
+}
+
+.slide h3{
+    background-color: rgba(228,237,249);
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 20px;
+    color: rgba(189,198,211);
+}
+
+.slide h1{
+    color: rgba(125,133,147);
+}
+
+.slide p{
+    color:rgba(33,33,33);
+    display: none;
+}
+
+
+
+/* logic for the active card */
+
+.slider .active{
+    opacity: 1;
+    cursor: auto;
+}
+
+.slider .active h3{
+    background-color: rgba(254,240,238);
+    color: rgba(248,115,99);
+}
+
+.slider .active h1{
+    color:rgba(33,33,33)
+}
+
+.slider .active h1 span{
+    color: #00EAD3;
+}
+
+.slider .active p{
+    display: block;
+}
+
+.arrow{
+    position: absolute;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(15,114,238);
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.arrow > *{
+    color: white;
+}
+
+.arrow:hover{
+    background-color: rgba(15,114,238, 0.1);
+}
+
+.arrow.left{
+    left: 40px;
+    top: 30px;
+}
+
+.arrow.right{
+    right: 40px;
+    top: 30px;
+}
+
+
+/* navigator */
+.navigator{
+    /* border: 2px solid red; */
+    width: 85%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot{
+    height :10px;
+    width: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    /* cursor: pointer; */
+    background-color: rgb(190, 195, 202);
+    transition: all 0.5s;
+}
+
+.active{
+    background-color: #655D8A;
+}
+
+
+/* responsive */
+@media screen and (max-width: 650px) {
+    .carousel{
+        height: 600px;
+    }
+}
